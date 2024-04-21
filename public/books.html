@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Books</title>
+</head>
+<body>
+    <h1>Biblioteca Reader</h1>
+    <h3>Books</h3>
+    <ul id="booksList">
+    </ul>
+</body>
+<script>
+    fetch("http://localhost:3000/api/books")
+    .then(res => res.json())
+    .then(data => {
+        console.log(data)
+        const booksList = document.getElementById("booksList")
+        data.forEach(book => {
+            const li = document.createElement("li")
+            const text = document.createTextNode(book.title)
+            li.append(text)
+            booksList.append(li)
+        })
+    })
+</script>
+</html>

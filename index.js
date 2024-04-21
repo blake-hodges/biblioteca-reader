@@ -1,5 +1,6 @@
 const express = require('express')
 const sqlite3 = require('sqlite3').verbose()
+const path = require("path")
 
 let db = new sqlite3.Database('./biblioteca.db', sqlite3.OPEN_READWRITE, (err) => {
     if (err) {
@@ -29,9 +30,13 @@ app.use(express.static('public'))
 
 
 
-// app.get("/", (req, res) => {
-//     res.send("hello world")
-// })
+app.get("/", (req, res) => {
+    res.sendFile(path.join(__dirname, "/public/index.html"))
+})
+
+app.get("/books", (req, res) => {
+    res.sendFile(path.join(__dirname, "/public/books.html"))
+})
 
 app.get("/api/authors", (req, res) => {
     db.all("SELECT * FROM authors", [], (err, rows) => {
@@ -41,6 +46,16 @@ app.get("/api/authors", (req, res) => {
         }
         res.json(rows);
     });
+})
+
+app.get("/api/books", (req, res) => {
+    db.all("SELECT * FROM books", [], (err, rows) => {
+        if (err) {
+            res.status(400).send(err.message);
+            return;
+        }
+        res.json(rows);
+    })
 })
 
 app.listen(3000, () => {
