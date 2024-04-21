@@ -25,11 +25,13 @@ let db = new sqlite3.Database('./biblioteca.db', sqlite3.OPEN_READWRITE, (err) =
 
 const app = express()
 
+app.use(express.static('public'))
 
 
-app.get("/", (req, res) => {
-    res.send("hello world")
-})
+
+// app.get("/", (req, res) => {
+//     res.send("hello world")
+// })
 
 app.get("/api/authors", (req, res) => {
     db.all("SELECT * FROM authors", [], (err, rows) => {
