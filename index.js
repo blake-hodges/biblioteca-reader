@@ -38,6 +38,21 @@ app.get("/books", (req, res) => {
     res.sendFile(path.join(__dirname, "/public/books.html"))
 })
 
+app.get("/book/:id", (req, res) => {
+    res.sendFile(path.join(__dirname, "/public/book.html"))
+})
+
+app.get("/api/book/:id", (req, res) => {
+    let query = "SELECT * FROM books WHERE id='" + req.params.id + "'"
+    db.get(query, [], (err, row) => {
+        if (err) {
+            res.status(400).send(err.message);
+            return;
+        }
+        res.json(row);
+    });
+})
+
 app.get("/api/authors", (req, res) => {
     db.all("SELECT * FROM authors", [], (err, rows) => {
         if (err) {
@@ -48,7 +63,22 @@ app.get("/api/authors", (req, res) => {
     });
 })
 
-app.get("/api/books", (req, res) => {
+app.get("/author/", (req, res) => {
+    res.sendFile(path.join(__dirname, "/public/author.html"))
+})
+
+app.get("/api/author/:id", (req, res) => {
+    let statement = "SELECT * FROM authors WHERE id=" + req.params.id
+    db.all(statement, [], (err, rows) => {
+        if (err) {
+            res.status(400).send(err.message);
+            return;
+        }
+        res.json(rows);
+    })
+})
+
+app.get("/api/books/", (req, res) => {
     db.all("SELECT * FROM books", [], (err, rows) => {
         if (err) {
             res.status(400).send(err.message);

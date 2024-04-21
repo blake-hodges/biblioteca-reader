@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Books</title>
+</head>
+<body>
+    <h1>Biblioteca Reader</h1>
+    <h3>Individual Book Page</h3>
+    <p>Book Title: <span id="title"></span></p>
+    <p>Author: <span id="author"></span></p>
+
+    
+</body>
+<script>
+    const url = window.location.href;
+    const parsedUrl = new URL(url);
+    const pathname = parsedUrl.pathname;
+    const segments = pathname.split('/');
+    console.log(segments)
+    const id = segments[2];
+    apiURL = "http://localhost:3000/api/book/" + id
+    fetch(apiURL)
+    .then(res => res.json())
+    .then(data => {
+        console.log(data)
+        const titleText = document.getElementById("title")
+        const authorName = document.getElementById("author")
+        titleText.textContent = data.title
+        authorName.textContent = data.author
+    })
+</script>
+</html>
