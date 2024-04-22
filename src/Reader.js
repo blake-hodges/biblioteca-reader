@@ -7,7 +7,7 @@ const Reader = () => {
     return (
       <div style={{ height: '100vh' }}>
         <ReactReader
-          url="https://react-reader.metabits.no/files/alice.epub"
+          url="http://localhost:3000/books/Ernest Hemingway/El viejo y el mar/El viejo y el mar - Ernest Hemingway.epub"
           location={location}
           locationChanged={(epubcfi) => setLocation(epubcfi)}
         />
@@ -15,7 +15,7 @@ const Reader = () => {
     )
   }
 
-  // var book = ePub("http://localhost:3000/books/Ernest Hemingway/El viejo y el mar/El viejo y el mar - Ernest Hemingway.epub");
+
 
 
 
