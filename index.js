@@ -30,6 +30,8 @@ let db = new sqlite3.Database('./biblioteca.db', sqlite3.OPEN_READWRITE, (err) =
 
 const app = express()
 
+app.use(express.urlencoded({extended: false}));
+app.use(express.json());
 app.use(express.static('public'))
 
 
