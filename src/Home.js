@@ -81,7 +81,7 @@ const Home = () => {
                     <div className="items-center flex flex-wrap">
                         <div className="w-full md:w-4/12 ml-auto mr-auto px-4">
                             <img
-                                alt="..."
+                                alt="reading a book"
                                 className="max-w-full rounded-lg shadow-lg"
                                 src="https://images.unsplash.com/photo-1506880018603-83d5b814b5a6?q=80&w=2874&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                             />
@@ -145,16 +145,16 @@ const Home = () => {
                 <div className="container mx-auto px-4">
                     <div className="flex flex-wrap justify-center text-center mb-24">
                         <div className="w-full lg:w-6/12 px-4">
-                            <h2 className="text-4xl font-semibold">
-                                Here are our heroes
+                            <h2 className="text-4xl font-semibold text-gray-600">
+                                Here are some of our most popular authors.
                             </h2>
                             <p className="text-lg leading-relaxed m-4 text-gray-600">
-                                Here are some of our most popular authors. Click to see the books available for each author.
+                                Click to see the books available for each author.
                             </p>
                         </div>
                     </div>
                     <div className="flex flex-wrap">
-                    <div className="w-full md:w-6/12 lg:w-3/12 lg:mb-0 mb-12 px-4">
+                        <div className="w-full md:w-6/12 lg:w-3/12 lg:mb-0 mb-12 px-4">
                             <div className="px-6">
                                 <img
                                     alt="Ernest Hemingway"

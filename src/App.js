@@ -4,13 +4,7 @@ import Home from './Home'
 import Navbar from './Navbar'
 import Books from './Books'
 import Reader from './Reader'
-
-const Authors = () => {
-    return (
-        <h1>authors</h1>
-    )
-}
-
+import Authors from './Authors'
 
 
 
