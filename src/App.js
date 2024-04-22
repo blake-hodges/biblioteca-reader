@@ -5,6 +5,7 @@ import Navbar from './Navbar'
 import Books from './Books'
 import Reader from './Reader'
 import Authors from './Authors'
+import Author from './Author'
 
 
 
@@ -18,6 +19,7 @@ const App = () => {
                 <Route path="/authors" element={ <Authors /> } />
                 <Route path="/books" element={ <Books /> } />
                 <Route path="/reader" element={ <Reader /> } />
+                <Route path="/author/:id" element={ <Author /> } />
             </Routes>
         </div>
     )
