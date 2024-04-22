@@ -1,6 +1,7 @@
 const express = require('express')
 const sqlite3 = require('sqlite3').verbose()
 const path = require("path")
+const { spawn } = require('child_process');
 
 let db = new sqlite3.Database('./biblioteca.db', sqlite3.OPEN_READWRITE, (err) => {
     if (err) {
@@ -9,6 +10,9 @@ let db = new sqlite3.Database('./biblioteca.db', sqlite3.OPEN_READWRITE, (err) =
         console.log('Connected to the SQLite database.');
     }
 })
+
+
+
 
 // Execute a query
 // db.serialize(() => {
@@ -97,6 +101,31 @@ app.get("/api/books/:id", (req,res) => {
             return;
         }
         res.json(rows);
+    })
+})
+
+app.get("/api/translate/:word", (req, res) => {
+    let wordToTranslate = req.params.word
+    console.log(wordToTranslate)
+    let dataToSend;
+    const python = spawn('python3', ['./translate.py', wordToTranslate]);
+
+    python.stdout.on('data', data => {
+        dataToSend = data.toString();
+        cleanedString = dataToSend.replace(/\n/g, '');
+        let json = {
+            "es": cleanedString
+        }
+        res.json(json)
+    })
+
+    python.stderr.on('data', data => {
+        console.error(`stderr: ${data}`);
+        res.send(data)
+    })
+
+    python.on('exit', code => {
+        console.log(`child process exited with code ${code}, ${dataToSend}`);
     })
 })
 
