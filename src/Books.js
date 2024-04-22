@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 
 const Books = () => {
     const [books, setBooks] = useState([])
@@ -20,7 +21,7 @@ const Books = () => {
                             <h4 className="text-xl">{book.title}</h4>
                             <p>{book.author}</p>
                         </div>
-                        <button>Read the Book</button>
+                        <Link to={`/reader/${book.id}`}><button>Read the Book</button></Link>
                     </div>
                 ))}
             </div>

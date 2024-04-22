@@ -22,7 +22,6 @@ const Author = () => {
                             <h4 className="text-xl">{book.title}</h4>
                         </div>
                         <Link to={`/reader/${book.id}`}><button>Read the Book</button></Link>
-                        {/* `http://localhost/books/${book.author}/${book.title}/${book.title} - ${book.author}.epub` */}
                     </div>
                 ))}
             </div>
