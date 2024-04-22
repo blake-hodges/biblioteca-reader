@@ -42,6 +42,10 @@ app.get("/book/:id", (req, res) => {
     res.sendFile(path.join(__dirname, "/public/book.html"))
 })
 
+app.get("/reader", (req, res) => {
+    res.sendFile(path.join(__dirname, "/public/reader.html"))
+})
+
 app.get("/api/book/:id", (req, res) => {
     let query = "SELECT * FROM books WHERE id='" + req.params.id + "'"
     db.get(query, [], (err, row) => {
