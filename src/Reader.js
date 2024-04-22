@@ -14,19 +14,19 @@ const Reader = () => {
     const fetchTranslation = () => {
         setTranslation("loading...")
         fetch(`http://localhost:3000/api/translate/${selection}`)
-                .then(res => res.json())
-                .then(data => {
-                    console.log(data)
-                    setTranslation(data.es)
-                })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                setTranslation(data.es)
+            })
         return
     }
     useEffect(() => {
         fetch(`http://localhost:3000/api/book/${routeParams.bookId}`)
-        .then(res => res.json())
-        .then(data => {
-            setBookData(data)
-        })
+            .then(res => res.json())
+            .then(data => {
+                setBookData(data)
+            })
     }, [])
     useEffect(() => {
         if (renditionRef.current) {
@@ -40,29 +40,31 @@ const Reader = () => {
         }
     }, [selection])
     return (
-      <div style={{ height: '100vh' }}>
-        {bookData != null && <ReactReader
-            url={`/books/${bookData.author}/${bookData.title}/${bookData.title} - ${bookData.author}.epub`}
-            location={location}
-            locationChanged={(epubcfi) => setLocation(epubcfi)}
-            getRendition={rendition => {
-                renditionRef.current = rendition
-                renditionRef.current.themes.default({
-                    '::selection': {
-                        background: 'orange'
-                    }
-                })
-                setSelection("")
-            }}
-        />}
-        <div>
-            <p className="text-white">Selected Text: {selection}</p>
-            <p className="text-white">Translation: {translation}</p>
-        </div>
-        <button className="bg-[#00df9a] text-white p-2 rounded-md" onClick={fetchTranslation}>Translate</button>
-      </div>
+        <main>
+            <div className="h-[100vh] relative mb-2">
+                {bookData != null && <ReactReader
+                    url={`/books/${bookData.author}/${bookData.title}/${bookData.title} - ${bookData.author}.epub`}
+                    location={location}
+                    locationChanged={(epubcfi) => setLocation(epubcfi)}
+                    getRendition={rendition => {
+                        renditionRef.current = rendition
+                        renditionRef.current.themes.default({
+                            '::selection': {
+                                background: 'orange'
+                            }
+                        })
+                        setSelection("")
+                    }}
+                />}
+            </div>
+            <div className="h-200px">
+                <p className="text-white">Selected Text: {selection}</p>
+                <p className="text-white">Translation: {translation}</p>
+                <button className="bg-[#00df9a] text-white p-2 rounded-md" onClick={fetchTranslation}>Translate</button>
+            </div>
+        </main>
     )
-  }
+}
 
 
 

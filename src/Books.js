@@ -12,20 +12,22 @@ const Books = () => {
         })
     }, [])
     return (
-        <div className="h-screen max-w-4xl mx-auto">
-            <div className="w-full grid grid-cols-4 gap-4">
-                {books.map((book) => (
-                    <div key={book.id} className="shadow-md rounded-md bg-white">
-                        <img className="rounded-t-md" src={`http://localhost:3000/books/${book.author}/${book.title}/cover.jpg`} alt="book cover" loading="lazy" />
-                        <div className="p-2 flex flex-col">
-                            <h4 className="text-xl">{book.title}</h4>
-                            <p>{book.author}</p>
+        <main>
+            <div className="max-w-4xl mx-auto">
+                <div className="w-full grid grid-cols-4 gap-4">
+                    {books.map((book) => (
+                        <div key={book.id} className="shadow-md rounded-md bg-white">
+                            <img className="rounded-t-md" src={`http://localhost:3000/books/${book.author}/${book.title}/cover.jpg`} alt="book cover" loading="lazy" />
+                            <div className="p-2 flex flex-col">
+                                <h4 className="text-xl">{book.title}</h4>
+                                <p>{book.author}</p>
+                            </div>
+                            <Link to={`/reader/${book.id}`}><button>Read the Book</button></Link>
                         </div>
-                        <Link to={`/reader/${book.id}`}><button>Read the Book</button></Link>
-                    </div>
-                ))}
+                    ))}
+                </div>
             </div>
-        </div>
+        </main>
     )
 }
 

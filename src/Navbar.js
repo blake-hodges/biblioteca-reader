@@ -8,7 +8,7 @@ export default function Navbar() {
         setNav(!nav);
     };
     return (
-        <div className="text-white flex justify-between items-center h-24 max-w-[1240px] mx-auto">
+        <div className="text-white flex justify-between items-center h-24 max-w-[1240px] mx-auto p-2">
             <h1 className="w-full text-3xl font-bold text-[#00df9a]">Biblioteca Reader</h1>
             <ul className="hidden md:flex">
                 <li className="p-4"><Link to="/">Home</Link></li>
