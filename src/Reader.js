@@ -2,6 +2,8 @@ import React, { useState, useEffect, useRef } from 'react'
 import { useParams } from 'react-router-dom'
 import { ReactReader } from 'react-reader'
 
+const url = "https://react-reader.metabits.no/files/alice.epub";
+
 
 const Reader = () => {
     const [bookData, setBookData] = useState(null)
@@ -13,7 +15,7 @@ const Reader = () => {
     const renditionRef = useRef(null)
     const fetchTranslation = () => {
         setTranslation("loading...")
-        fetch(`http://localhost:3000/api/translate/${selection}`)
+        fetch(`/api/translate/${selection}`)
             .then(res => res.json())
             .then(data => {
                 console.log(data)
@@ -22,7 +24,7 @@ const Reader = () => {
         return
     }
     useEffect(() => {
-        fetch(`http://localhost:3000/api/book/${routeParams.bookId}`)
+        fetch(`/api/book/${routeParams.bookId}`)
             .then(res => res.json())
             .then(data => {
                 setBookData(data)
@@ -43,7 +45,8 @@ const Reader = () => {
         <main>
             <div className="h-[100vh] relative mb-2">
                 {bookData != null && <ReactReader
-                    url={`/books/${bookData.author}/${bookData.title}/${bookData.title} - ${bookData.author}.epub`}
+                    // url={`/books/${bookData.author}/${bookData.title}/${bookData.title} - ${bookData.author}.epub`}
+                    url="https://react-reader.metabits.no/files/alice.epub"
                     location={location}
                     locationChanged={(epubcfi) => setLocation(epubcfi)}
                     getRendition={rendition => {

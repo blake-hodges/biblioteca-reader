@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom'
 const Authors = () => {
     const [authorsData, setAuthorsData] = useState([])
     useEffect(() => {
-        fetch("http://localhost:3000/api/authors")
+        fetch("/api/authors")
         .then(res => res.json())
         .then(data => {
             setAuthorsData(data)
@@ -19,7 +19,7 @@ const Authors = () => {
                     <div className="flex flex-wrap justify-center text-center mb-24">
                         <div className="w-full lg:w-6/12 px-4  py-2">
                             <h2 className="text-4xl font-semibold text-gray-600">
-                                Authors
+                                Authors Page alskjf
                             </h2>
                             <p className="text-lg leading-relaxed m-4 text-gray-600">
                                 Explore all of our authors below.
