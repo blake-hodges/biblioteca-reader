@@ -3,10 +3,7 @@ import { FaFingerprint } from "react-icons/fa";
 import { IoBookSharp } from "react-icons/io5";
 import { FaBrain } from "react-icons/fa";
 import { BiHappy } from "react-icons/bi";
-
-
-
-
+import AuthorCard from "./AuthorCard";
 
 
 const Home = () => {
@@ -97,7 +94,7 @@ const Home = () => {
                                 <ul className="list-none mt-6">
                                     <li className="py-2">
                                         <div className="flex items-center">
-                                            <div>
+                                            <div className="flex items-center">
                                                 <span className="text-xs font-semibold inline-block p-2 uppercase rounded-full text-white bg-[#00df9a] mr-3">
                                                     <IoBookSharp />
                                                 </span>
@@ -111,7 +108,7 @@ const Home = () => {
                                     </li>
                                     <li className="py-2">
                                         <div className="flex items-center">
-                                            <div>
+                                            <div className="flex items-center">
                                                 <span className="text-xs font-semibold inline-block p-2 uppercase rounded-full text-white bg-[#00df9a] mr-3">
                                                     <FaBrain />
                                                 </span>
@@ -123,7 +120,7 @@ const Home = () => {
                                     </li>
                                     <li className="py-2">
                                         <div className="flex items-center">
-                                            <div>
+                                            <div className="flex items-center">
                                                 <span className="text-xs font-semibold inline-block p-2 uppercase rounded-full text-white bg-[#00df9a] mr-3">
                                                     <BiHappy />
                                                 </span>
@@ -154,92 +151,26 @@ const Home = () => {
                         </div>
                     </div>
                     <div className="flex flex-wrap">
-                        <div className="w-full md:w-6/12 lg:w-3/12 lg:mb-0 mb-12 px-4">
-                            <div className="px-6">
-                                <img
-                                    alt="Ernest Hemingway"
-                                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/28/ErnestHemingway.jpg/800px-ErnestHemingway.jpg"
-                                    className="shadow-lg rounded-full max-w-full mx-auto"
-                                    style={{ maxWidth: "120px" }}
-                                />
-                                <div className="pt-6 text-center">
-                                    <h5 className="text-xl font-bold  text-gray-500">
-                                        Ernest Hemingway
-                                    </h5>
-                                    <p className="mt-1 text-xs text-gray-500">
-                                        <strong>Popular Works:</strong> The Old Man and the Sea, A Farewell to Arms, For Whom the Bell Tolls
-                                    </p>
-                                    <div className="mt-6">
-                                        <button className="bg-[#00df9a] text-white p-2 rounded-md">Read More</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="w-full md:w-6/12 lg:w-3/12 lg:mb-0 mb-12 px-4">
-                            <div className="px-6">
-                                <img
-                                    alt="Alexandre Dumas"
-                                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/Alexander_Dumas_p%C3%A8re_par_Nadar_-_Google_Art_Project.jpg/800px-Alexander_Dumas_p%C3%A8re_par_Nadar_-_Google_Art_Project.jpg"
-                                    className="shadow-lg rounded-full max-w-full mx-auto"
-                                    style={{ maxWidth: "120px" }}
-                                />
-                                <div className="pt-6 text-center">
-                                    <h5 className="text-xl font-bold text-gray-500">
-                                        Alexandre Dumas
-                                    </h5>
-                                    <p className="mt-1 text-xs text-gray-500">
-                                        <strong>Popular Works:</strong> The Count of Montecristo, The Three Muskeeteers, The Man in the Iron Mask
-                                    </p>
-                                    <div className="mt-6">
-                                        <button className="bg-[#00df9a] text-white p-2 rounded-md">Read More</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="w-full md:w-6/12 lg:w-3/12 lg:mb-0 mb-12 px-4">
-                            <div className="px-6">
-                                <img
-                                    alt="Jane Austen"
-                                    src="https://upload.wikimedia.org/wikipedia/commons/1/1b/Jane_Austen.jpg"
-                                    className="shadow-lg rounded-full max-w-full mx-auto"
-                                    style={{ maxWidth: "120px" }}
-                                />
-                                <div className="pt-6 text-center">
-                                    <h5 className="text-xl font-bold text-gray-500">
-                                        Jane Austen
-                                    </h5>
-                                    <p className="mt-1 text-xs text-gray-500">
-                                        <strong>Popular Works:</strong> Pride and Prejudice, Sense and Sensibility, Emma
-                                    </p>
-                                    <div className="mt-6">
-                                        <button className="bg-[#00df9a] text-white p-2 rounded-md">Read More</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="w-full md:w-6/12 lg:w-3/12 lg:mb-0 mb-12 px-4">
-                            <div className="px-6">
-                                <img
-                                    alt="Charles Dickens"
-                                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Dickens_Gurney_head.jpg/800px-Dickens_Gurney_head.jpg"
-                                    className="shadow-lg rounded-full max-w-full mx-auto"
-                                    style={{ maxWidth: "120px" }}
-                                />
-                                <div className="pt-6 text-center">
-                                    <h5 className="text-xl font-bold text-gray-500">
-                                    Charles Dickens
-                                    </h5>
-                                    <p className="mt-1 text-xs text-gray-500">
-                                        <strong>Popular Works:</strong> Great Expectations, A Tale of Two Cities, Oliver Twist
-                                    </p>
-                                    <div className="mt-6">
-                                        <button className="bg-[#00df9a] text-white p-2 rounded-md">Read More</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        
+                        <AuthorCard
+                            authorName="Ernest Hemingway"
+                            imgUrl="https://upload.wikimedia.org/wikipedia/commons/thumb/2/28/ErnestHemingway.jpg/800px-ErnestHemingway.jpg"
+                            works="The Old Man and the Sea, A Farewell to Arms, For Whom the Bell Tolls"
+                        />
+                        <AuthorCard
+                            authorName="Alexandre Dumas"
+                            imgUrl="https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/Alexander_Dumas_p%C3%A8re_par_Nadar_-_Google_Art_Project.jpg/800px-Alexander_Dumas_p%C3%A8re_par_Nadar_-_Google_Art_Project.jpg"
+                            works="The Count of Montecristo, The Three Muskeeteers, The Man in the Iron Mask"
+                        />
+                        <AuthorCard
+                            authorName="Jane Austen"
+                            imgUrl="https://upload.wikimedia.org/wikipedia/commons/1/1b/Jane_Austen.jpg"
+                            works="Pride and Prejudice, Sense and Sensibility, Emma"
+                        />
+                        <AuthorCard
+                            authorName="Charles Dickens"
+                            imgUrl="https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Dickens_Gurney_head.jpg/800px-Dickens_Gurney_head.jpg"
+                            works="Great Expectations, A Tale of Two Cities, Oliver Twist"
+                        />
                     </div>
                 </div>
             </section>
