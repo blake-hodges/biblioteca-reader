@@ -79,7 +79,7 @@ const Home = () => {
 
                 <div className="container mx-auto px-4">
                     <div className="items-center flex flex-wrap">
-                        <div className="w-full md:w-4/12 ml-auto mr-auto px-4">
+                        <div className="w-full md:w-6/12 ml-auto mr-auto px-4">
                             <img
                                 alt="reading a book"
                                 className="max-w-full rounded-lg shadow-lg"
@@ -104,7 +104,7 @@ const Home = () => {
                                             </div>
                                             <div>
                                                 <h4 className="text-gray-600">
-                                                    Immerse yourself in  stories you love
+                                                    Immerse yourself in  interesting books and stories
                                                 </h4>
                                             </div>
                                         </div>
