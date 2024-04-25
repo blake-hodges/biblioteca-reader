@@ -5,3 +5,17 @@
 body {
     background-color: #000300;
 }
+
+@layer base {
+    /* h1 {
+        @apply text-2xl;
+    }
+
+    h2 {
+        @apply text-xl;
+    } */
+    
+    button {
+        @apply bg-[#00df9a] text-white p-2 rounded-md;
+    }
+}

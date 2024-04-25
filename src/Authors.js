@@ -42,7 +42,7 @@ const Authors = () => {
                                         </h5>
                                         <div className="mt-6">
                                             <Link to={`/author/${author.id}`}>
-                                                <button className="bg-[#00df9a] text-white p-2 rounded-md">See Books</button>
+                                                <button>See Books</button>
                                             </Link>
                                         </div>
                                     </div>

@@ -61,7 +61,7 @@ const Reader = () => {
             <div className="h-200px">
                 <p className="text-white">Selected Text: {selection}</p>
                 <p className="text-white">Translation: {translation}</p>
-                <button className="bg-[#00df9a] text-white p-2 rounded-md" onClick={fetchTranslation}>Translate</button>
+                <button onClick={fetchTranslation}>Translate</button>
             </div>
         </main>
     )

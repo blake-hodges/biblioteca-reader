@@ -9,7 +9,7 @@ const BookCard = (props) => {
                 <h4 className="text-xl">{props.book.title}</h4>
                 <p>{props.book.author}</p>
             </div>
-            <Link to={`/reader/${props.book.id}`}><button className="bg-[#00df9a] text-white p-2 m-2 rounded-md">Read the Book</button></Link>
+            <Link to={`/reader/${props.book.id}`}><button className="m-2">Read the Book</button></Link>
         </div>
     )
 }

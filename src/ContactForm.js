@@ -105,7 +105,7 @@ const ContactForm = () => {
                             </div>
                             <div className="text-center mt-6">
                                 <button
-                                    className="bg-[#00df9a] text-white active:bg-gray-700 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1"
+                                    className=" active:bg-gray-700 text-sm font-bold uppercase px-6 py-3 shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1"
                                     type="submit"
                                     style={{ transition: "all .15s ease" }}
                                 >

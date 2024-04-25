@@ -21,7 +21,7 @@ const AuthorCard = (props) => {
                 </p>
                 <div className="mt-4 mb-2">
                     <Link to={`/author/${props.authorId}`}>
-                        <button className="bg-[#00df9a] text-white p-2 rounded-md">Read More</button>
+                        <button>Read More</button>
                     </Link>
                 </div>
             </div>
