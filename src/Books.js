@@ -1,15 +1,20 @@
 import React, { useState, useEffect } from 'react'
-// import { Link } from 'react-router-dom'
+import { listBooks } from './api.js'
 import BookCard from './BookCard'
+
+
 
 const Books = () => {
     const [books, setBooks] = useState([])
     useEffect(() => {
-        fetch("/api/books")
-        .then(res => res.json())
-        .then(data => {
-            setBooks(data)
-        })
+        listBooks()
+            .then(data => {
+                if (data.error) {
+                    console.log(data.error)
+                } else {
+                    setBooks(data)
+                }
+            })
     }, [])
     return (
         <main className="flex flex-col min-h-screen p-6">
