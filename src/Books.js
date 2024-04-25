@@ -12,7 +12,7 @@ const Books = () => {
         })
     }, [])
     return (
-        <main>
+        <main className="flex flex-col min-h-screen">
             <div className="max-w-4xl mx-auto">
                 <div className="w-full grid grid-cols-4 gap-4">
                     {books.map((book) => (

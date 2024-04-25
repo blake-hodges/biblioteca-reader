@@ -9,7 +9,7 @@ import ContactForm from "./ContactForm";
 
 const Home = () => {
     return (
-        <main>
+        <main  className="flex flex-col min-h-screen">
             <div className="relative pt-16 pb-32 flex content-center items-center justify-center"
                 style={{
                     minHeight: "75vh"
