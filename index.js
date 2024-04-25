@@ -1,7 +1,14 @@
 const express = require('express')
 const sqlite3 = require('sqlite3').verbose()
-const path = require("path")
+const path = require('path')
+const Joi = require('joi')
 // const { spawn } = require('child_process');
+
+const contactInfoSchema = Joi.object({
+    name: Joi.string().min(3).max(30).trim().required(),
+    email: Joi.string().email({ minDomainSegments: 2, tlds: { allow: ['com', 'net'] } }),
+    message: Joi.string().min(10).max(500).trim().required()
+})
 
 
 
@@ -101,6 +108,35 @@ app.get("/api/translate/:word", (req, res) => {
     // python.on('exit', code => {
     //     console.log(`child process exited with code ${code}, ${dataToSend}`);
     // })
+})
+
+app.post("/api/contact", (req, res) => {
+    console.log(req.body)
+    let contactInfo = {
+        name: req.body.name,
+        message: req.body.message,
+        email: req.body.email
+    }
+    const {error, value} = contactInfoSchema.validate(contactInfo);
+    
+    if (error) {
+        console.log(error);
+        console.log(error.details[0].message);
+        res.status(403).json({"error": error.details[0].message});
+        return;
+    }
+    // If validation passes, proceed with your business logic
+    // console.log('Validated data:', value);
+    const sql = `INSERT INTO contact (name, email, message) VALUES ('${value.name}', '${value.email}', '${value.message}')`;
+    console.log(sql)
+    db.run(sql, [], (err) => {
+        if (err) {
+            console.log(err.message);
+            res.status(400).json({"error": "there was an error adding your data to the database"});
+        }
+        console.log("contact info was saved successfully");
+        res.send('Data received');
+    })
 })
 
 app.get("*", (req, res) => {
