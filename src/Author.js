@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useParams, Link } from 'react-router-dom'
+import BookCard from './BookCard'
 
 
 const Author = () => {
@@ -12,17 +13,11 @@ const Author = () => {
     }, [])
     return (
 
-        <div className="h-screen max-w-4xl mx-auto">
-            <h1 className="text-white font-semibold text-5xl my-4">{books.length !== 0 && books[0].author}</h1>
-            <div className="w-full grid grid-cols-4 gap-4">
+        <div className="max-w-4xl mx-auto min-h-screen pb-4 px-6">
+            <h1 className="text-white font-semibold text-5xl my-6">{books.length !== 0 && books[0].author}</h1>
+            <div className="w-full grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 gap-4">
                 {books.map((book) => (
-                    <div key={book.id} className="shadow-md rounded-md bg-white">
-                        <img className="rounded-t-md" src={`/books/${book.author}/${book.title}/cover.jpg`} alt="book cover" loading="lazy" />
-                        <div className="p-2 flex flex-col">
-                            <h4 className="text-xl">{book.title}</h4>
-                        </div>
-                        <Link to={`/reader/${book.id}`}><button>Read the Book</button></Link>
-                    </div>
+                    <BookCard book={book} key={book.id} />
                 ))}
             </div>
         </div>
