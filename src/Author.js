@@ -2,15 +2,27 @@ import React, { useEffect, useState } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import BookCard from './BookCard'
 
-
+const listBooksByAuthor = async (url) => {
+    try {
+        let response = await fetch(url)
+        return await response.json()
+    } catch(err) {
+        console.log(err)
+    }
+}
 
 const Author = () => {
     const routeParams = useParams();
     const [books, setBooks] = useState([])
     useEffect(() => {
-        fetch(`/api/books/${routeParams.id}`)
-            .then(res => res.json())
-            .then(data => setBooks(data))
+        listBooksByAuthor(`/api/books/${routeParams.id}`)
+            .then(data => {
+                if (data.error) {
+                    console.log(data.error)
+                } else {
+                    setBooks(data)
+                }
+            })
     }, [])
     return (
 

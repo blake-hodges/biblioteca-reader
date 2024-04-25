@@ -19,5 +19,14 @@ const listAuthors = async () => {
     }
 }
 
+const listBooksByAuthor = async (url) => {
+    try {
+        let response = await fetch(url)
+        return await response.json()
+    } catch(err) {
+        console.log(err)
+    }
+}
 
-export { listBooks, listAuthors }
+
+export { listBooks, listAuthors, listBooksByAuthor }
