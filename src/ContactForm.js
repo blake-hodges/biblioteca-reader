@@ -57,8 +57,8 @@ const ContactForm = () => {
                                     onChange={handleChange}
                                     name="name"
                                     required
-                                    minlength="3"
-                                    maxlength="30"
+                                    minLength="3"
+                                    maxLength="30"
                                 />
                             </div>
 
@@ -97,8 +97,8 @@ const ContactForm = () => {
                                     value={formData.message}
                                     onChange={handleChange}
                                     required
-                                    minlength="10"
-                                    maxlength="500"
+                                    minLength="10"
+                                    maxLength="500"
                                 />
                                 <p className="text-red-500">{errorMessage}</p>
                                 <p>{successMessage}</p>
