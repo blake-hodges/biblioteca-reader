@@ -1,16 +1,18 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-
-
+import { listAuthors } from './api.js'
 
 const Authors = () => {
     const [authorsData, setAuthorsData] = useState([])
     useEffect(() => {
-        fetch("/api/authors")
-        .then(res => res.json())
-        .then(data => {
-            setAuthorsData(data)
-        })
+        listAuthors()
+            .then(data => {
+                if (data.error) {
+                    console.log(data.error)
+                } else {
+                    setAuthorsData(data)
+                }
+            })
     }, [])
     return (
         <main className="flex flex-col min-h-screen relative">

@@ -10,10 +10,14 @@ const listBooks = async () => {
     }
 }
 
-// const listAuthors = async () => {
-//     let response = await fetch("/api/authors")
-//     return await response.json()
-// }
+const listAuthors = async () => {
+    try {
+        let response = await fetch("/api/authors")
+        return await response.json()
+    } catch(err) {
+        console.log(err)
+    }
+}
 
 
-export { listBooks }
+export { listBooks, listAuthors }
