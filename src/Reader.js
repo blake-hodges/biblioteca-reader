@@ -2,7 +2,6 @@ import React, { useState, useEffect, useRef } from 'react'
 import { useParams } from 'react-router-dom'
 import { ReactReader } from 'react-reader'
 
-const url = "https://react-reader.metabits.no/files/alice.epub";
 
 
 const Reader = () => {
@@ -45,8 +44,7 @@ const Reader = () => {
         <main>
             <div className="h-[100vh] relative mb-2">
                 {bookData != null && <ReactReader
-                    // url={`/books/${bookData.author}/${bookData.title}/${bookData.title} - ${bookData.author}.epub`}
-                    url="https://react-reader.metabits.no/files/alice.epub"
+                    url={`/books/${bookData.author}/${bookData.title}/${bookData.title} - ${bookData.author}.epub`}
                     location={location}
                     locationChanged={(epubcfi) => setLocation(epubcfi)}
                     getRendition={rendition => {
