@@ -2,7 +2,7 @@ const express = require('express')
 const sqlite3 = require('sqlite3').verbose()
 const path = require('path')
 const Joi = require('joi')
-// const { spawn } = require('child_process');
+const { spawn } = require('child_process');
 
 const contactInfoSchema = Joi.object({
     name: Joi.string().min(3).max(30).trim().required(),
@@ -83,35 +83,34 @@ app.get("/api/books/:id", (req,res) => {
 })
 
 app.get("/api/translate/:word", (req, res) => {
-    let wordToTranslate = req.params.word
-    let json = {
-                "es": "the translation"
-            }
-    res.json(json)
-    // let dataToSend;
-    // const python = spawn('python3', ['./translate.py', wordToTranslate]);
+    let wordToTranslate = String(req.params.word)
+    console.log(wordToTranslate)
+    
+    let dataToSend;
+    const python = spawn('python3', ['./translate.py', wordToTranslate]);
 
-    // python.stdout.on('data', data => {
-    //     dataToSend = data.toString();
-    //     cleanedString = dataToSend.replace(/\n/g, '');
-    //     let json = {
-    //         "es": cleanedString
-    //     }
-    //     res.json(json)
-    // })
+    python.stdout.on('data', data => {
+        dataToSend = data.toString();
+        cleanedString = dataToSend.replace(/\n/g, '');
+        let json = {
+            "es": cleanedString
+        }
+        res.json(json)
+    })
 
-    // python.stderr.on('data', data => {
-    //     console.error(`stderr: ${data}`);
-    //     res.send(data)
-    // })
+    python.stderr.on('data', data => {
+        console.error(`stderr: ${data}`);
+        res.send(data)
+    })
 
-    // python.on('exit', code => {
-    //     console.log(`child process exited with code ${code}, ${dataToSend}`);
-    // })
+    python.on('exit', code => {
+        console.log(`child process exited with code ${code}, ${dataToSend}`);
+    })
+
+
 })
 
 app.post("/api/contact", (req, res) => {
-    console.log(req.body)
     let contactInfo = {
         name: req.body.name,
         message: req.body.message,
@@ -128,7 +127,6 @@ app.post("/api/contact", (req, res) => {
     // If validation passes, proceed with your business logic
     // console.log('Validated data:', value);
     const sql = `INSERT INTO contact (name, email, message) VALUES ('${value.name}', '${value.email}', '${value.message}')`;
-    console.log(sql)
     db.run(sql, [], (err) => {
         if (err) {
             console.log(err.message);
