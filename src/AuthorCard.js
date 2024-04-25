@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const AuthorCard = (props) => {
     return (
@@ -19,7 +20,9 @@ const AuthorCard = (props) => {
                     <strong>Popular Works:</strong> {props.works}
                 </p>
                 <div className="mt-4 mb-2">
-                    <button className="bg-[#00df9a] text-white p-2 rounded-md">Read More</button>
+                    <Link to={`/author/${props.authorId}`}>
+                        <button className="bg-[#00df9a] text-white p-2 rounded-md">Read More</button>
+                    </Link>
                 </div>
             </div>
         </div>

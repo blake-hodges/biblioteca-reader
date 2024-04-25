@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import { FaFingerprint } from "react-icons/fa";
 import { IoBookSharp } from "react-icons/io5";
 import { FaBrain } from "react-icons/fa";
@@ -156,21 +156,25 @@ const Home = () => {
                             authorName="Ernest Hemingway"
                             imgUrl="https://upload.wikimedia.org/wikipedia/commons/thumb/2/28/ErnestHemingway.jpg/800px-ErnestHemingway.jpg"
                             works="The Old Man and the Sea, A Farewell to Arms, For Whom the Bell Tolls"
+                            authorId={8}
                         />
                         <AuthorCard
                             authorName="Alexandre Dumas"
                             imgUrl="https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/Alexander_Dumas_p%C3%A8re_par_Nadar_-_Google_Art_Project.jpg/800px-Alexander_Dumas_p%C3%A8re_par_Nadar_-_Google_Art_Project.jpg"
                             works="The Count of Montecristo, The Three Muskeeteers, The Man in the Iron Mask"
+                            authorId={1}
                         />
                         <AuthorCard
                             authorName="Jane Austen"
                             imgUrl="https://upload.wikimedia.org/wikipedia/commons/1/1b/Jane_Austen.jpg"
                             works="Pride and Prejudice, Sense and Sensibility, Emma"
+                            authorId={27}
                         />
                         <AuthorCard
                             authorName="Charles Dickens"
                             imgUrl="https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Dickens_Gurney_head.jpg/800px-Dickens_Gurney_head.jpg"
                             works="Great Expectations, A Tale of Two Cities, Oliver Twist"
+                            authorId={6}
                         />
                     </div>
                 </div>
