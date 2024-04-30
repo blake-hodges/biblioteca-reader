@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const AuthorCard = (props) => {
     return (
-        <div className="md:w-6/12 lg:w-3/12 py-4 overflow-hidden shadow-lg">
+        <div className="w-full md:w-6/12 lg:w-3/12 py-4 overflow-hidden shadow-lg flex flex-col justify-between grow">
             <div className="flex flex-column justify-center">
                 <img
                     alt={`${props.authorName} portrait`}

@@ -180,7 +180,7 @@ const Home = () => {
                 </div>
             </section>
 
-            <section className="pb-20 relative block bg-[#00df9a]">
+            <section className="pb-20 relative hidden md:block">
                 <div
                     className="bottom-auto top-0 left-0 right-0 w-full absolute pointer-events-none overflow-hidden -mt-20"
                     style={{ height: "80px" }}
@@ -194,10 +194,10 @@ const Home = () => {
                         x="0"
                         y="0"
                     >
-                        {/* <polygon
+                        <polygon
                             className="text-gray-900 fill-current"
                             points="2560 0 2560 100 0 100"
-                        ></polygon> */}
+                        ></polygon>
                     </svg>
                 </div>
 
