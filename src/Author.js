@@ -2,14 +2,6 @@ import React, { useEffect, useState } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import BookCard from './BookCard'
 
-const listBooksByAuthor = async (url) => {
-    try {
-        let response = await fetch(url)
-        return await response.json()
-    } catch(err) {
-        console.log(err)
-    }
-}
 
 const Author = () => {
     const routeParams = useParams();
