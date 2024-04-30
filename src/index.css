@@ -18,4 +18,5 @@ body {
     button {
         @apply bg-[#00df9a] text-white p-2 rounded-md;
     }
+
 }
