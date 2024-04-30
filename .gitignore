@@ -1,0 +1,9 @@
+node_modules
+
+books
+
+
+public/books/
+
+
+.DS_Store

@@ -13,12 +13,23 @@ const Reader = () => {
     const [loading, setLoading] = useState(false)
     const renditionRef = useRef(null)
     const fetchTranslation = () => {
+        //`/translate/${selection}`
         setTranslation("loading...")
-        fetch(`/api/translate/${selection}`)
+        const translateURL = `http://localhost:5000/translate`
+        fetch(translateURL, {
+            method: "POST",
+            body: JSON.stringify({
+                q: "",
+                source: "es",
+                target: "en",
+                format: "text"
+            }),
+            headers: { "Content-Type": "application/json" }
+        })
             .then(res => res.json())
             .then(data => {
                 console.log(data)
-                setTranslation(data.es)
+                setTranslation(data[0].en)
             })
         return
     }

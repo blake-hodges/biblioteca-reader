@@ -82,33 +82,6 @@ app.get("/api/books/:id", (req,res) => {
     })
 })
 
-app.get("/api/translate/:word", (req, res) => {
-    let wordToTranslate = String(req.params.word)
-    console.log(wordToTranslate)
-    
-    let dataToSend;
-    const python = spawn('python3', ['./translate.py', wordToTranslate]);
-
-    python.stdout.on('data', data => {
-        dataToSend = data.toString();
-        cleanedString = dataToSend.replace(/\n/g, '');
-        let json = {
-            "es": cleanedString
-        }
-        res.json(json)
-    })
-
-    python.stderr.on('data', data => {
-        console.error(`stderr: ${data}`);
-        res.send(data)
-    })
-
-    python.on('exit', code => {
-        console.log(`child process exited with code ${code}, ${dataToSend}`);
-    })
-
-
-})
 
 app.post("/api/contact", (req, res) => {
     let contactInfo = {
@@ -146,28 +119,4 @@ app.listen(3001, () => {
 })
 
 
-// // Close the database on program close
-// ['SIGINT', 'SIGTERM', 'SIGQUIT'].forEach(signal => process.on(signal, () => {
-//     db.close((err) => {
-//         if (err) {
-//             console.error(err.message);
-//         }
-//         console.log('Closed the database connection.');
-//     });
-// }))
 
-// db.close((err) => {
-//     if (err) {
-//         console.error(err.message);
-//     }
-//     console.log('Closed the database connection.');
-// });
-
-// process.on('SIGINT', () => {
-//     db.close((err) => {
-//         if (err) {
-//             console.error(err.message);
-//         }
-//         console.log('Closed the database connection.');
-//     });
-// });
