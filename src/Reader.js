@@ -15,8 +15,8 @@ const Reader = () => {
     const fetchTranslation = () => {
         //`/translate/${selection}`
         setTranslation("loading...")
-        const translateURL = `http://localhost:5001/translate`
-        fetch(translateURL, {
+        // const translateURL = `/translate`
+        fetch("/translate", {
             method: "POST",
             body: JSON.stringify({
                 q: selection,
