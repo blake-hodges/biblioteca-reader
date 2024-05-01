@@ -15,11 +15,11 @@ const Reader = () => {
     const fetchTranslation = () => {
         //`/translate/${selection}`
         setTranslation("loading...")
-        const translateURL = `http://localhost:5000/translate`
+        const translateURL = `http://localhost:5001/translate`
         fetch(translateURL, {
             method: "POST",
             body: JSON.stringify({
-                q: "",
+                q: selection,
                 source: "es",
                 target: "en",
                 format: "text"
@@ -29,7 +29,7 @@ const Reader = () => {
             .then(res => res.json())
             .then(data => {
                 console.log(data)
-                setTranslation(data[0].en)
+                setTranslation(data.translatedText)
             })
         return
     }
