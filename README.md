@@ -51,21 +51,21 @@ A Spanish language learning app that allows you to read ebooks through translati
 To set up the project, you can run:
 
 ```
-npm run build;
+npm run build
 ```
 
 This will build a production-version of the React front end in /public/src. After the project is built, you can run the Express server to see the front end of the app.
 
 
 ```
-npm run dev;
+npm run dev
 ```
 
 This command runs the webpack dev server and watches for changes within /src, so changes can be made without running the build command after each change.
 
 
 ```
-npm start;
+npm start
 ```
 This runs the Express server that serves the React app bundle, static assets, and works with the SQLite database.
 
